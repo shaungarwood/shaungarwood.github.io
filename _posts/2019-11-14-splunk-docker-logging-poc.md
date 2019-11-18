@@ -2,7 +2,7 @@
 layout: post
 title:  "Darn You Splunk! Darn You to HEC!"
 date:   2019-11-16 19:54:23 -0700
-categories: docker splunk logs
+tags: docker splunk logs
 ---
 
 So, the goal was to get Splunk running to monitor/alert/graph several docker containers and the physical hosts they're running on. I ended up hitting a few roadblocks getting there, while finding suprisingly little help in my Google travels. So I'm writing out a simple top-to-bottom proof-of-concept to get docker logs flowing into a Splunk docker instance.

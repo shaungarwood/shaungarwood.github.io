@@ -2,7 +2,7 @@
 layout: post
 title:  "My Set-Up For Blogging"
 date:   2019-06-03 20:24:21 -0600
-categories: docker
+tags: docker
 ---
 Nothing better to kick this blog off than explaining how I set it up!
 
