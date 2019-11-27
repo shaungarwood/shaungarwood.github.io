@@ -30,6 +30,9 @@ version: "1.0"
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+
+remote_theme: heiswayi/the-plain
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
