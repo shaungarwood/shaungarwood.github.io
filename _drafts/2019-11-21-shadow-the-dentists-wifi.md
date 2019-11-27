@@ -5,20 +5,14 @@ date:   2019-11-21 06:20:49 -0700
 tags: shadow security
 ---
 
-Therapist-hack
+# Shadow: The Dentist's WiFi
 
-- super fancy hack with lots of power and password list generating
-- old school detective wins in the end
-
-I think it'd be a good story about how the low tech options are some of the best
-
-
-
+## Thursday morning
 A fan pushes smoke around the musty office. Foot steps echo in the hallway as the black silhouette stops at the glass window in the door etched with "DETECTIVE SHADOW".
 
 "IT'S OPEN!", Shadow shouts, catching a hint of the night before still on his breath.
 
-The door creeks open as the hallway light reveals a slender silhouette, mid-40s with shoulder-length dark hair you could curl your finger around. Shadow immediately thinks, "looks like trouble."
+The door creeks open as the hallway light reveals a curvy silhouette, mid-40s with shoulder-length dark hair you could curl your finger around. Shadow immediately thinks, "looks like trouble."
 
 "Mr. Shadow?", she asks. "Are you Detective Shadow?"
 
@@ -35,7 +29,14 @@ Miss Trouble sits her clutch on his desk to nervously retrieve her vape from it.
 She stuffs her still smoking contraption back into her purse and withdraws a small scrap of paper. Shadow eyes it thoughtfully before taking the address from her.
 
 ----
-
+## Saturday afternoon
 Shadow rolls up to the address in his sun-faded-red '98 Ford Taurus. It's one of those buildings with a few medical offices and a million insurance agencies. Why did we need so many insurance agents? And why did they all need seperate offices?
+
+Shadow opens a glass door with aging vinyl stickers announcing:
+```
+Synergistic Offices
+732 Main St.
+303-512-6629
+```
 
 
