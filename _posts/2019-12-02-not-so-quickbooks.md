@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Not So QuickBooks"
-date:   2019-11-21 06:20:49 -0700
+date:   2019-12-02 06:12:26 -0700
 tags:  python oauth api fail
 ---
 
