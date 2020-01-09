@@ -52,4 +52,7 @@ else
     exit 1
 fi
 
-git clone https://github.com/shaungarwood/my_bootstraps.git
+# if this script is standalone, will still need to checkout repo
+if [ -d "~/my_bootstraps" ]; then
+    git clone https://github.com/shaungarwood/my_bootstraps.git ~/my_bootstraps
+fi
