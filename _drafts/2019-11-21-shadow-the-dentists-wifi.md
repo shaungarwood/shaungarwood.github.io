@@ -5,8 +5,6 @@ date:   2019-11-21 06:20:49 -0700
 tags: shadow security
 ---
 
-# Shadow: The Dentist's WiFi
-
 ## Thursday morning
 A fan pushes smoke around the musty office. Foot steps echo in the hallway as the black silhouette stops at the glass window in the door etched with "DETECTIVE SHADOW".
 
@@ -39,4 +37,11 @@ Synergistic Offices
 303-512-6629
 ```
 
+The front desk was empty, as was most the building. No one was going to ask Shadow what he was doing here. It's the kind of building that sees a lot of strangers come and go at all hours to do business stuff. So long as he's not wearing a hoodie, the few busy bees aren't going to bother this old bear.
 
+The green LEDs blink to life on Shadow's laptop as he finds a stiff, ugly couch near the fireplace to wallflower into it. As always, Shadow's tool of choice is Kali Linux: The O.S. for the P.I. of G.O. He was going to get in, grab some WiFi logins, and get out for an easy paycheck.
+
+
+- list wifi networks
+- run wifite (easy WAP vulns), no go
+- capture packets
