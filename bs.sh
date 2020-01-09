@@ -35,21 +35,21 @@ echo $OS
 echo $VER
 
 # install ansible and git
-if [ $OS == "Ubuntu" ] || [ $OS == "Debian" ]; then
+if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
     echo "this is debian flavor machine"
 
     sudo apt-get -y install software-properties-common
     sudo apt-add-repository -y ppa:ansible/ansible
     sudo apt-get update
     sudo apt-get -y install git ansible
-elif [ $OS == CentOS* ]; then
+elif [[ "$OS" == CentOS* ]]; then
     echo "this is centos machine"
     sudo yum install -y epel-release
-    sudo yum install -y ansible
+    sudo yum install -y git ansible
 else
     echo "not sure what flavor this machine is"
     echo "exiting"
     exit 1
 fi
 
-git clone git@github.com:shaungarwood/my_bootstraps.git
+git clone https://github.com/shaungarwood/my_bootstraps.git
