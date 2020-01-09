@@ -1,5 +1,27 @@
 #!/bin/bash
 
+cat << "EOF"
+
+ _                 _       _
+| |__   ___   ___ | |_ ___| |_ _ __ __ _ _ __  ___
+| '_ \ / _ \ / _ \| __/ __| __| '__/ _` | '_ \/ __|
+| |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) \__ \
+|_.__/ \___/ \___/ \__|___/\__|_|  \__,_| .__/|___/
+                                        |_|
+
+      [] 
+   []__(_____  <|
+    (____ / <| <|
+    (___ /  <| L`-------.
+    (__ /   L`--------.  \
+    /  `.    ^^^^^ |   \  |
+   |     \---------'    |/
+   |______|____________/]
+   [_____|`-.__________]
+
+
+EOF
+
 # stole this from: https://unix.stackexchange.com/a/6348
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
@@ -31,12 +53,17 @@ else
     VER=$(uname -r)
 fi
 
-echo $OS
-echo $VER
+echo "-----------------------------"
+echo "OS appears to be: $OS"
+echo "Version: $VER"
+echo "-----------------------------"
+echo
+echo
 
 # install ansible and git
 if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
     echo "this is debian flavor machine"
+    echo
 
     sudo apt-get -y install software-properties-common
     sudo apt-add-repository -y ppa:ansible/ansible
@@ -44,6 +71,7 @@ if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
     sudo apt-get -y install git ansible
 elif [[ "$OS" == CentOS* ]]; then
     echo "this is centos machine"
+    echo
     sudo yum install -y epel-release
     sudo yum install -y git ansible
 else
