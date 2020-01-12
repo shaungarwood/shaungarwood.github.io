@@ -9,7 +9,7 @@ cat << "EOF"
 |_.__/ \___/ \___/ \__|___/\__|_|  \__,_| .__/|___/
                                         |_|
 
-      [] 
+      []
    []__(_____  <|
     (____ / <| <|
     (___ /  <| L`-------.
@@ -86,5 +86,3 @@ if [[ ! -d ~/my_bootstraps ]]; then
 else
     echo "repo already exists, exiting"
 fi
-
-alias ap="ansible-playbook"
