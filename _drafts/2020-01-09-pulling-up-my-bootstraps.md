@@ -1,18 +1,18 @@
 ---
 layout: post
-title:  "Pulling Myself Up By My Bootstraps"
+title:  "Mr. Robot's Bootstraps"
 date:   2020-01-09 06:20:25 -0700
 tags: ansible bash automation vagrant
 ---
 
-Watching Mr. Robot, it occurred to me that Elliot is almost always on a new system. He's either using a live system (Kali Linux), on someone else's computer, or he's just finished microwaving his RAM. But there's no way that he's always using default set-ups. Right? He wouldn't use nano and bash for his late night coding. He'd have custom python modules, elaborate nmap scripts, and a million zsh aliases. So how does he have time to set up his environments?
+Watching Mr. Robot, it occurred to me that Elliot is almost always on a new system. He's either using a live system ([Kali Linux](https://www.kali.org/)), on someone else's computer, or he's just finished microwaving his RAM. But there's no way that he's always using default set-ups. Right? He wouldn't use nano and bash for his late night coding. He'd have custom python modules, elaborate nmap scripts, and a million zsh aliases. So how does he have time to set up his environments?
 
 <center>
   <iframe src="https://giphy.com/embed/ZKQpx4TYrxTtS" width="336" height="321" frameBorder="0" allowFullScreen>
   </iframe>
 </center>
 
-I think that he probably has some automated scripts sitting out on the internet somewhere. Some AWS server paid for anonymously, who's IP address he has memorized. His own personal bootstrap kit floating in the cloud. I want one!
+I think that he probably has some automated scripts sitting out on the internet somewhere. Scripts that will install everything he needs and configure all the dotfile to his liking. Sitting on some AWS server paid for anonymously, who's IP address he has memorized. His own personal bootstrap kit floating in the cloud...I want one!
 
 ## My Bootstraps
 
@@ -26,12 +26,14 @@ Needs to be:
 3. **Easy**. No long commands to memorize or type. No flags I can't remember.
 4. **Fully headless**. I don't know, just because I like not being tied to a GUI.
 
-I went with ansible because it seemed better suited for provisioning a localhost. You can do the same with salt or chef, but you have to make some config changes before you can. Ansible just worked out of the box for what I needed.
+I went with [ansible](https://www.ansible.com/) because it seemed better suited for provisioning a localhost. You can do the same with salt or chef, but you have to make some config changes before you can. Ansible just worked out of the box for what I needed.
 
 All the ansible "playbooks" are obviously in a git repo. But I didn't want to type out a long git clone command, so I wrote a bootstrap for my bootstrap! Just a quick bash script that would install git and ansible, then clone my repo full of the playbooks. This saves me time and about 5 lines of commands.
 
 So this part I'm really pleased with myself about: **I stored this bootstrap bootstrap script in the root directory of this site!** Here it is:
 <a href="https://shaungarwood.com/bs.sh">shaungarwood.com/bs.sh</a>
+
+[Here](https://github.com/shaungarwood/my_bootstraps/blob/master/bin/initial-bootstrap.sh) is the github link if you just want to check out my bash scripting skillz.
 
 <center>
   <iframe src="https://giphy.com/embed/146OLb5nrHt3Co" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen>
@@ -108,3 +110,5 @@ end
 
 And finally, here is the repo so you can check it out yourself:
 <a href="https://github.com/shaungarwood/my_bootstraps">https://github.com/shaungarwood/my_bootstraps</a>
+
+Even if you don't know ansible, you should check it out. All the magic is in the "tasks" directory. It's very human readable and easy to start hacking up to make your very own bootstrap kit in the cloud.
