@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mr. Robot's Bootstraps"
-date:   2020-01-09 06:20:25 -0700
+date:   2020-01-13 06:00:28 -0700
 tags: ansible bash automation vagrant
 ---
 
