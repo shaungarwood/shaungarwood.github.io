@@ -91,9 +91,13 @@ Okay, ready to see it in action? A <a href="https://asciinema.org/a/oOVnonDr0042
 Want to try it out yourself? Here's a full run Vagrant demo using ubuntu and centos:
 ```ruby
 Vagrant.configure("2") do |config|
-  config.vm.provision "shell", inline: "wget shaungarwood.com/bs.sh"
-  config.vm.provision "shell", inline: "bash bs.sh"
-  config.vm.provision "shell", inline: "ansible-playbook ~/my_bootstraps/tasks/*.yml"
+  $script = <<-SCRIPT
+  wget shaungarwood.com/bs.sh
+  bash bs.sh
+  ansible-playbook ~/my_bootstraps/tasks/*.yml
+  SCRIPT
+
+  config.vm.provision "shell", inline: $script, privileged: false
 
 
   config.vm.define "centos" do |centos|
@@ -112,3 +116,5 @@ And finally, here is the repo so you can check it out yourself:
 <a href="https://github.com/shaungarwood/my_bootstraps">https://github.com/shaungarwood/my_bootstraps</a>
 
 Even if you don't know ansible, you should check it out. All the magic is in the "tasks" directory. It's very human readable and easy to start hacking up to make your very own bootstrap kit in the cloud.
+
+Edit (2020/01/14): Fixed the vagrant demo code. It was running everything as root, fixed with ```privileged: false```.
