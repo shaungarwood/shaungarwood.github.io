@@ -61,7 +61,7 @@ echo
 echo
 
 # install ansible and git
-if [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
+if [ "$OS" == "Ubuntu" ] || [[ "$OS" == Debian* ]]; then
     echo "this is a debian flavor machine"
     echo
 
