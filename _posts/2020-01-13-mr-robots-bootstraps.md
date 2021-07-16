@@ -36,9 +36,10 @@ So this part I'm really pleased with myself about: **I stored this bootstrap boo
 [Here](https://github.com/shaungarwood/my_bootstraps/blob/master/bin/initial-bootstrap.sh) is the github link if you just want to check out my bash scripting skillz.
 
 <center>
-  <iframe src="https://giphy.com/embed/146OLb5nrHt3Co" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen>
+  <iframe src="https://giphy.com/embed/WiM5K1e9MtEic" width="480" height="353" frameBorder="0" class="giphy-embed" allowFullScreen>
   </iframe>
 </center>
+
 
 This means that all I need to type to begin setting up a new linux host is:
 ```wget shaungarwood.com/bs.sh```
