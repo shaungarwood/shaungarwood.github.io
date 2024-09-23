@@ -7,18 +7,18 @@ tags: gap
 
 Oh my god, it's been a while.
 
-I'll be honest, I kind of forgot that I had this blob.
+I'll be honest, I kind of forgot that I had this blog.
 
 A few things have been happened since then. Covid, for one. The 2021 insurection. Divorce, etc.
 
 Enough things have happened since then that the people who knew about this blog are long and gone.
 
-This blob has always been tech related stuff. I'll keep it that way, for now. But I may go on different tangents.
+This blog has always been tech related stuff. I'll keep it that way, for now. But I may go on different tangents.
 
 I actually started this back up because I wanted to put a pgp key on my root domain.
 
 Here's what's changed technologically:
- - obsidian.md is the note taking app I wish I knew about years ago
+ - [obsidian](https://obsidian.md) is the note taking app I wish I knew about years ago
  - I've left a job, got laid off from the next, then found a new one I am ABSOLUTELY in love with
  - REALLy digging AI/copiliot
  - dropped python for the most part
