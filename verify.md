@@ -11,7 +11,7 @@ This page lets you confirm that this site and its accounts are controlled by the
 
 ## Keyoxide Profile
 
-[keyoxide.org/hkp/882AAA9AF96C51FAA0CABA638F2FFA281B2921F3](https://keyoxide.org/hkp/882AAA9AF96C51FAA0CABA638F2FFA281B2921F3)
+[keyoxide.org/hkp/882AAA9AF96C51FAA0CABA638F2FFA281B2921F3]({{ site.keyoxide_url }})
 
 Keyoxide is an open-source identity verification tool. The profile above links my PGP key to the accounts I control.
 
