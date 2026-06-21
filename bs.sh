@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# test
+
 cat << "EOF"
 
  _                 _       _
