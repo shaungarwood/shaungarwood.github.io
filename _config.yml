@@ -42,3 +42,6 @@ exclude:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Include for processing
+include: [".well-known"]
