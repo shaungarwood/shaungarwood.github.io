@@ -1,0 +1,18 @@
+[
+	{
+		"id": 1,
+		"icon": {
+			"type": "lucide",
+			"name": "map-pin"
+		},
+		"text": "he/him"
+	},
+	{
+		"id": 2,
+		"icon": {
+			"type": "lucide",
+			"name": "terminal"
+		},
+		"text": "linux, python, ruby, networking, security, docker"
+	}
+]

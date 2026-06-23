@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"icon": {
+			"type": "lucide",
+			"name": "github"
+		},
+		"text": "GitHub",
+		"link": "https://github.com/shaungarwood"
+	},
+	{
+		"id": 2,
+		"icon": {
+			"type": "lucide",
+			"name": "key-round"
+		},
+		"text": "Keyoxide",
+		"link": "https://keyoxide.org/hkp/882AAA9AF96C51FAA0CABA638F2FFA281B2921F3"
+	}
+]

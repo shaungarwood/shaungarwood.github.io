@@ -1,0 +1,23 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "did:web:shaungarwood.com",
+  "verificationMethod": [
+    {
+      "id": "did:web:shaungarwood.com#key-0",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:shaungarwood.com",
+      "publicKeyJwk": {
+        "kty": "EC",
+        "crv": "secp256k1",
+        "x": "g20os2eodzqmzwk_lyZJdZgjjNJ4VeS2DouiAZYf4Zk",
+        "y": "eRZmtB3tx1A15KXzeXqAVm9-zanUc1d5p_T_iu8v7Mo"
+      }
+    }
+  ],
+  "assertionMethod": [
+    "did:web:shaungarwood.com#key-0"
+  ]
+}
