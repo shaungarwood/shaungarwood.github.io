@@ -20,7 +20,7 @@ const path = Astro.url.pathname;
     </li>
     <li class="nav-separator">/</li>
     <li>
-      <input id="search" type="text" placeholder="Search (Ctrl+K)" />
+      <input id="search" type="text" placeholder="Search" />
       <div id="search-results"></div>
     </li>
   </ul>
@@ -149,13 +149,7 @@ const path = Astro.url.pathname;
     document.querySelector('nav').classList.toggle('active');
   });
 
-  const handleTabletChange = () => {
-    if (window.matchMedia('(max-width: 640px)').matches) {
-      searchElement.placeholder = 'Search';
-    } else {
-      searchElement.placeholder = 'Search (Ctrl+K)';
-    }
-  }
+  const handleTabletChange = () => {};
 
   document.addEventListener('DOMContentLoaded', handleTabletChange);
   document.addEventListener('resize', handleTabletChange);
