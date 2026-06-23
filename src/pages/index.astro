@@ -143,7 +143,7 @@ const { Content: About } = await render(about!);
 						.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 						.slice(0, 2)
 						.map((project) => (
-							<a href={`/projects/${project.id}`} class="post-container">
+							<a href={project.data.info[0].link} target="_blank" rel="noopener noreferrer" class="post-container">
 								<div class="post-header">
 									<h3>{project.data.title}</h3>
 									<span class="post-date">
