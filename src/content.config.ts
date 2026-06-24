@@ -66,7 +66,6 @@ const posts = defineCollection({
 			tags: z.array(reference("tags")),
 			draft: z.boolean().optional().default(false),
 			signed: z.boolean().optional().default(false),
-			image: image(),
 		}),
 });
 
@@ -77,7 +76,7 @@ const projects = defineCollection({
 			title: z.string(),
 			description: z.string(),
 			date: z.coerce.date(),
-			image: image(),
+			image: image().optional(),
 			link: z.url().optional(),
 			info: z.array(
 				z.object({
