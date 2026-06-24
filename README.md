@@ -1,46 +1,99 @@
-![Spectre, a terminal-inspired theme for Astro.](./images/README.png)
+# shaungarwood.github.io
 
-Spectre is a terminal-inspired theme for Astro, built using TypeScript and Astro.
+Personal blog at [shaungarwood.com](https://shaungarwood.com). Built with Astro and the Spectre theme.
 
-## Getting Started
+## Tech Stack
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/louisescher/spectre/tree/master)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/louisescher/spectre/tree/master)
+- **[Astro](https://astro.build)** — static site generator
+- **[Spectre](https://github.com/louisescher/spectre)** — terminal-inspired theme (local copy in `/package`)
+- **MDX** — blog posts with component support
+- **Pagefind** — client-side search (runs post-build)
+- **`@astrojs/rss`** — RSS feed at `/rss.xml`
+- **`@astrojs/sitemap`** — auto-generated sitemap
+- **Geist / Geist Mono** — fonts (self-hosted in `/public/fonts`)
+- **pnpm** — package manager
 
-Alternatively, you can create a new Astro project with Spectre like this:
+## Project Layout
 
-```bash
-# npm
-npm create astro@latest -- --template louisescher/spectre
+```
+src/
+├── content/
+│   ├── posts/          # Blog posts (.mdx)
+│   ├── projects/       # Project showcases (.mdx)
+│   ├── other/          # Misc pages (about.mdx)
+│   ├── info.json       # Quick info items (location, skills, etc.)
+│   ├── socials.json    # Social links
+│   └── tags.json       # Available post tags
+├── pages/
+│   ├── index.astro     # Homepage
+│   ├── blog.astro      # Post listing
+│   ├── blog/[post].astro
+│   ├── projects.astro
+│   └── rss.xml.ts      # RSS feed
+├── components/
+├── layouts/
+│   └── Layout.astro    # Root layout (head, nav, grid)
+├── styles/
+│   ├── reset.css       # Fonts + CSS reset
+│   └── globals.css     # Colors, shared styles
+└── assets/             # Profile picture, etc.
 
-# pnpm
-pnpm create astro@latest --template louisescher/spectre
-
-# yarn
-yarn create astro --template louisescher/spectre
+package/                # Local Spectre Astro integration
+public/                 # Static assets (fonts, favicon, OG image)
 ```
 
-## Features
+## Running Locally
 
-- 100 / 100 Lighthouse performance
-- Responsive for all screen sizes
-- Fully accessible
-- Type-Safe
-- Auto-generated sitemap
-- Markdown / MDX Support
-- Builds on content collections
-- Search powered by [pagefind](https://pagefind.app)
-- Comments powered by [giscus](https://giscus.app) (can be turned off, see below for details)
-- More!
+Requires [pnpm](https://pnpm.io).
 
-## Curious?
+```bash
+pnpm install
+pnpm dev
+```
 
-Head over to [the preview page](https://spectre.lou.gg) to find out more!
+The dev server starts at `http://localhost:4321`.
 
-### Spectre Integration
+## Writing a Post
 
-If you want to know more about how the custom integration that is used in the `astro.config.ts` file works, head over to the [integration's own README](https://github.com/louisescher/spectre/tree/master/package)!
+1. Copy `src/content/posts/new-post-template.mdx` to a new file in the same directory.
+2. Fill out the frontmatter:
 
-### Turning off giscus
+```yaml
+---
+title: "Post Title"
+description: "One-liner for previews and SEO."
+image: "../assets/your-image.png"
+createdAt: MM-DD-YYYY
+draft: false
+tags:
+  - docker
+---
+```
 
-There should be a file called astro.config.ts in the cloned/forked repository. Inside of that file, there's a defineConfig function, inside of which is an integrations array that contains the spectre integration along with its options. The live version has the giscus option on Line 47. Simply removing Lines 47 to 57 should disable giscus.
+3. Write the post in MDX below the frontmatter.
+4. Set `draft: true` to keep it out of production builds.
+
+Available tags are defined in `src/content/tags.json`.
+
+## Building
+
+```bash
+pnpm build    # runs astro build + pagefind indexing
+pnpm preview  # preview the production build
+```
+
+## Verify Page (`/verify`)
+
+`src/pages/verify.astro` — identity verification page. It surfaces:
+
+- **Keyoxide** profile linking the PGP key to controlled accounts
+- **PGP public key** fingerprint + downloadable `.asc` file (served from `public/pgp-key.asc`)
+- **DID document** at `/.well-known/did.json` (`did:web:shaungarwood.com`)
+
+To update the fingerprint or Keyoxide URL, edit the constants at the top of `verify.astro`.
+
+## Deployment
+
+Deployed to GitHub Pages via the workflow in `.github/workflows/`. Pushes to `master` trigger a build and deploy automatically.
+
+Custom domain is set via the `CNAME` file (`shaungarwood.com`).
