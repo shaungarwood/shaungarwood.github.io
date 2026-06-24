@@ -108,7 +108,7 @@ const { Content, headings } = await render(post);
 			<div class={post.data.signed ? "signed-content" : ""}>
 				<Content />
 				{post.data.signed && (
-					<div class="gpg-badge" data-pagefind-ignore>
+					<div class="gpg-badge" id="gpg-badge" data-slug={post.id} data-pagefind-ignore>
 						<div class="gpg-badge-header">
 							<Icon type="lucide" name="shield-check" width={16} height={16} class="glow-icon" />
 							<span>Cryptographically proven to be Shaun (not a 🤖)</span>
@@ -116,10 +116,13 @@ const { Content, headings } = await render(post);
 						</div>
 						<div class="gpg-badge-meta">
 							<code class="gpg-fingerprint">{GPG_FINGERPRINT}</code>
-							<a href={`/signatures/${post.id}.asc`} class="gpg-download">Download .asc</a>
+						</div>
+						<div class="gpg-browser-verify">
+							<button id="verify-btn" class="verify-btn">Verify in browser</button>
+							<span id="verify-result" class="verify-result"></span>
 						</div>
 						<details class="gpg-verify">
-							<summary>Verify yourself</summary>
+							<summary>Verify yourself (CLI)</summary>
 							<pre>{`curl https://shaungarwood.com/source/${post.id} > post.mdx
 curl https://shaungarwood.com/signatures/${post.id}.asc > post.asc
 gpg --fetch-keys https://shaungarwood.com/pgp-key.asc
@@ -164,6 +167,7 @@ gpg --verify post.asc post.mdx`}</pre>
 	</article>
 </Layout>
 <script src="../../scripts/toc.ts"></script>
+{post.data.signed && <script src="../../scripts/verify-post.ts"></script>}
 <style is:global>
 	.toc-card ol {
 		padding: 0;

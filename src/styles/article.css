@@ -200,6 +200,44 @@ ol li a.active {
 	padding: 0;
 }
 
+.gpg-browser-verify {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.verify-btn {
+	font-family: inherit;
+	font-size: 0.8rem;
+	color: var(--primary-light);
+	border: 1px solid var(--primary);
+	padding: 0.2rem 0.6rem;
+	cursor: pointer;
+	transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.verify-btn:hover:not(:disabled) {
+	background-color: var(--primary);
+	color: #000;
+}
+
+.verify-btn:disabled {
+	opacity: 0.6;
+	cursor: default;
+}
+
+.verify-result {
+	font-size: 0.8rem;
+}
+
+.verify-ok {
+	color: #4ade80;
+}
+
+.verify-fail {
+	color: #f87171;
+}
+
 .gpg-verify summary {
 	cursor: pointer;
 	font-size: 0.8rem;
