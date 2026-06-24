@@ -11,6 +11,7 @@ Personal blog at [shaungarwood.com](https://shaungarwood.com). Built with Astro 
 - **`@astrojs/rss`** — RSS feed at `/rss.xml`
 - **`@astrojs/sitemap`** — auto-generated sitemap
 - **Geist / Geist Mono** — fonts (self-hosted in `/public/fonts`)
+- **[Lucide icons](https://lucide.dev/icons)** — icon set used throughout the UI (browse at lucide.dev/icons)
 - **pnpm** — package manager
 
 ## Project Layout
