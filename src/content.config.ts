@@ -8,6 +8,13 @@ const other = defineCollection({
 	loader: glob({ base: "src/content/other", pattern: "**/*.{md,mdx}" }),
 });
 
+const notes = defineCollection({
+	loader: glob({ base: "src/content/notes", pattern: "**/*.{md,mdx}" }),
+	schema: z.object({
+		date: z.coerce.date(),
+	}),
+});
+
 const lucideIconSchema = z.object({
 	type: z.literal("lucide"),
 	name: z.custom<keyof typeof lucideIcons>(),
@@ -93,6 +100,7 @@ export const collections = {
 	posts,
 	projects,
 	other,
+	notes,
 	quickInfo,
 	socials,
 	workExperience,

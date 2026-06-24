@@ -9,14 +9,26 @@ import Icon from "../components/Icon.astro";
 import ImageGlow from "../components/ImageGlow.astro";
 import Layout from "../layouts/Layout.astro";
 
-const [posts, projects, about, quickInfo, socials] =
+const [posts, projects, notes, about, quickInfo, socials] =
 	await Promise.all([
 		getCollection("posts", (post) => post.data.draft !== true),
 		getCollection("projects"),
+		getCollection("notes"),
 		getEntry("other", "about"),
 		getCollection("quickInfo"),
 		getCollection("socials"),
 	]);
+
+const latestNotes = notes
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 5);
+
+const renderedNotes = await Promise.all(
+	latestNotes.map(async (note) => {
+		const { Content } = await render(note);
+		return { note, Content };
+	}),
+);
 
 const { Content: About } = await render(about!);
 ---
@@ -124,6 +136,26 @@ const { Content: About } = await render(about!);
 							</a>
 						))
 				}
+			</div>
+		</Card>
+		<Card>
+			<div class="header-container">
+				<a href="/notes.xml" title="Notes RSS Feed" aria-label="Notes RSS Feed">
+					<Icon type="lucide" name="rss" width={24} height={24} class="glow-icon" />
+				</a>
+				<h2><a href="/notes">Latest Notes</a></h2>
+			</div>
+			<div class="notes-feed">
+				{renderedNotes.map(({ note, Content }) => (
+					<div class="note-entry">
+						<time class="note-date" datetime={note.data.date.toISOString()}>
+							{note.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+						</time>
+						<div class="note-content">
+							<Content />
+						</div>
+					</div>
+				))}
 			</div>
 		</Card>
 		<Card>

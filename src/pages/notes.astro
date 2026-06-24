@@ -1,0 +1,108 @@
+---
+import "../styles/article-list.css";
+import "../styles/article.css";
+
+import { getCollection, render } from "astro:content";
+import Card from "../components/Card.astro";
+import Icon from "../components/Icon.astro";
+import Layout from "../layouts/Layout.astro";
+
+const notes = (await getCollection("notes")).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const renderedNotes = await Promise.all(
+	notes.map(async (note) => {
+		const { Content } = await render(note);
+		return { note, Content };
+	}),
+);
+---
+<Layout title="Notes" description="Short thoughts from Shaun." pagefindIgnore>
+	<div class="layout-grid-left" slot="left">
+		<Card class="flex-col-card">
+			<h2 class="no-mt">Stats</h2>
+			<div class="stats-div">
+				<div class="stat">
+					<h3 class="text-glow">{notes.length}</h3>
+					<span>Note{notes.length === 1 ? "" : "s"}</span>
+				</div>
+			</div>
+		</Card>
+	</div>
+	<div class="layout-grid-right" slot="right">
+		<Card>
+			<div class="header-container">
+				<a href="/notes.xml" title="Notes RSS Feed" aria-label="Notes RSS Feed">
+					<Icon type="lucide" name="rss" width={24} height={24} class="glow-icon" />
+				</a>
+				<h2>Notes</h2>
+			</div>
+			<div class="notes-feed">
+				{renderedNotes.map(({ note, Content }) => (
+					<article class="note-entry" id={note.id}>
+						<time class="note-date" datetime={note.data.date.toISOString()}>
+							{note.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+						</time>
+						<div class="note-content">
+							<Content />
+						</div>
+					</article>
+				))}
+			</div>
+		</Card>
+	</div>
+</Layout>
+<style>
+	.stats-div {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.stat h3 {
+		font-size: 2em;
+		margin: 0;
+		margin-bottom: 0.5rem;
+	}
+
+	.notes-feed {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.note-entry {
+		padding: 1rem 0;
+		border-bottom: 1px solid #353535;
+	}
+
+	.note-entry:first-child {
+		padding-top: 0;
+	}
+
+	.note-entry:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.note-date {
+		font-size: 0.75rem;
+		color: #c7c7c7;
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
+	.note-content :global(p) {
+		margin-top: 0;
+		line-height: 1.6;
+	}
+
+	.note-content :global(p:last-child) {
+		margin-bottom: 0;
+	}
+</style>

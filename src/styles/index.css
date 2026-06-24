@@ -93,3 +93,35 @@
 	gap: 0.75rem;
 	align-items: center;
 }
+
+.notes-feed {
+	display: flex;
+	flex-direction: column;
+}
+
+.note-entry {
+	padding: 0.75rem 0;
+	border-bottom: 1px solid #353535;
+}
+
+.note-entry:first-child {
+	padding-top: 0;
+}
+
+.note-entry:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.note-date {
+	font-size: 0.75rem;
+	color: #c7c7c7;
+	display: block;
+	margin-bottom: 0.35rem;
+}
+
+.note-content p {
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 1.6;
+}
