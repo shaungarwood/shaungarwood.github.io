@@ -7,7 +7,7 @@ Personal blog at [shaungarwood.com](https://shaungarwood.com). Built with Astro 
 - **[Astro](https://astro.build)** — static site generator
 - **[Spectre](https://github.com/louisescher/spectre)** — terminal-inspired theme (local copy in `/package`)
 - **MDX** — blog posts with component support
-- **Pagefind** — client-side search (runs post-build)
+- **Pagefind** — client-side search (runs post-build; search only works after `pnpm build`, not in dev)
 - **`@astrojs/rss`** — RSS feed at `/rss.xml`
 - **`@astrojs/sitemap`** — auto-generated sitemap
 - **Geist / Geist Mono** — fonts (self-hosted in `/public/fonts`)

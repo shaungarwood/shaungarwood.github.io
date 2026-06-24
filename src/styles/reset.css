@@ -14,6 +14,14 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: "Space Mono";
+	src: url("/fonts/SpaceMono-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
 /* From https://github.com/withstudiocms/ui */
 
 *,
@@ -34,7 +42,8 @@ body {
 
 body {
 	-webkit-font-smoothing: antialiased;
-	font-family: "Geist", Arial, Helvetica, sans-serif;
+	font-family: "Space Mono", "Courier New", Courier, monospace;
+	font-weight: 400;
 }
 
 input,
@@ -52,7 +61,7 @@ h5,
 h6,
 code {
 	overflow-wrap: anywhere;
-	font-family: "Geist Mono", "Courier New", Courier, monospace;
+	font-family: "Space Mono", "Courier New", Courier, monospace;
 }
 
 h1,
@@ -78,7 +87,7 @@ p:last-of-type {
 pre,
 pre *,
 code {
-	font-family: "Geist Mono", "Courier New", Courier, monospace;
+	font-family: "Space Mono", "Courier New", Courier, monospace;
 	line-height: 1;
 }
 
