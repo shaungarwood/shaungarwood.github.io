@@ -1,0 +1,42 @@
+name: Check Post Signatures
+
+on:
+  push:
+    paths:
+      - 'src/content/posts/**'
+  pull_request:
+    paths:
+      - 'src/content/posts/**'
+
+jobs:
+  check-signatures:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check all published posts are signed
+        run: |
+          UNSIGNED=()
+          for f in src/content/posts/*.{md,mdx}; do
+            [ -f "$f" ] || continue
+            # skip drafts
+            if grep -q "^draft: true" "$f"; then
+              continue
+            fi
+            # check for signed: true
+            if ! grep -q "^signed: true" "$f"; then
+              UNSIGNED+=("$f")
+            fi
+          done
+
+          if [ ${#UNSIGNED[@]} -gt 0 ]; then
+            echo "::warning::The following posts are not GPG signed:"
+            for f in "${UNSIGNED[@]}"; do
+              echo "::warning::  $f"
+            done
+            echo ""
+            echo "Run ./scripts/sign-post.sh <slug> to sign them."
+            exit 1
+          fi
+
+          echo "All published posts are signed ✓"

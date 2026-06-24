@@ -76,6 +76,31 @@ tags:
 
 Available tags are defined in `src/content/tags.json`.
 
+## Signing a Post
+
+Posts can be GPG signed to prove authorship. Signed posts show a "Cryptographically proven to be Shaun" badge with a verification trail.
+
+```bash
+./scripts/sign-post.py src/content/posts/my-post.mdx
+```
+
+The script:
+1. Injects `signed: true` into the post's frontmatter
+2. Creates a detached armor signature at `public/signatures/<slug>.asc`
+
+The signature covers the full MDX file (frontmatter + content), so any post-publish edits will invalidate it. Re-run the script to re-sign after edits.
+
+The raw MDX source is served at `/source/<slug>` so readers can verify without touching GitHub:
+
+```bash
+curl https://shaungarwood.com/source/my-post > post.mdx
+curl https://shaungarwood.com/signatures/my-post.asc > post.asc
+gpg --fetch-keys https://shaungarwood.com/pgp-key.asc
+gpg --verify post.asc post.mdx
+```
+
+CI will warn on any push or PR that contains unsigned published posts.
+
 ## Building
 
 ```bash

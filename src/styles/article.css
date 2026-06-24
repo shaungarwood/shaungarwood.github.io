@@ -152,6 +152,74 @@ ol li a.active {
 	}
 }
 
+.signed-content {
+	border-left: 2px solid var(--primary);
+	filter: drop-shadow(-2px 0 6px rgba(var(--primary-rgb), 0.3));
+	padding-left: 1.25rem;
+}
+
+.gpg-badge {
+	margin-top: 2rem;
+	border: 1px solid var(--primary);
+	border-left: none;
+	padding: 0.75rem 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-left: -1.25rem;
+	padding-left: calc(1.25rem + 1rem);
+	background: rgba(var(--primary-rgb), 0.04);
+}
+
+.gpg-badge-header {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.875rem;
+}
+
+.gpg-verify-link {
+	font-size: 0.8rem;
+}
+
+.gpg-badge-meta {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.gpg-download {
+	font-size: 0.8rem;
+	margin-left: auto;
+}
+
+.gpg-fingerprint {
+	font-size: 0.8rem;
+	color: #c7c7c7;
+	background: none;
+	padding: 0;
+}
+
+.gpg-verify summary {
+	cursor: pointer;
+	font-size: 0.8rem;
+	color: var(--primary-light);
+}
+
+.gpg-verify summary:hover {
+	color: var(--primary-lightest);
+}
+
+.gpg-verify pre {
+	margin-top: 0.5rem;
+	font-size: 0.75rem;
+	white-space: pre-wrap;
+	word-break: break-all;
+	border: none;
+	padding: 0;
+	line-height: 1.6;
+}
+
 code:not(.astro-code code) {
 	background-color: #353535;
 	padding: 0.125rem 0.25rem;

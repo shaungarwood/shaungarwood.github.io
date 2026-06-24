@@ -6,8 +6,12 @@ import { getCollection, render } from "astro:content";
 import { giscus } from "spectre:globals";
 import type { GetStaticPaths } from "astro";
 import Card from "../../components/Card.astro";
+import Icon from "../../components/Icon.astro";
 import ImageGlow from "../../components/ImageGlow.astro";
 import Layout from "../../layouts/Layout.astro";
+
+import pgp from "../../config/pgp.json";
+const GPG_FINGERPRINT = pgp.fingerprintFormatted;
 
 /**
  * Estimates the time it takes to read a post in minutes based on:
@@ -101,7 +105,29 @@ const { Content, headings } = await render(post);
 					</div>
 				</div>
 			</div>
-			<Content />
+			<div class={post.data.signed ? "signed-content" : ""}>
+				<Content />
+				{post.data.signed && (
+					<div class="gpg-badge" data-pagefind-ignore>
+						<div class="gpg-badge-header">
+							<Icon type="lucide" name="shield-check" width={16} height={16} class="glow-icon" />
+							<span>Cryptographically proven to be Shaun (not a 🤖)</span>
+							<a href="/verify#blog-posts" class="gpg-verify-link">How?</a>
+						</div>
+						<div class="gpg-badge-meta">
+							<code class="gpg-fingerprint">{GPG_FINGERPRINT}</code>
+							<a href={`/signatures/${post.id}.asc`} class="gpg-download">Download .asc</a>
+						</div>
+						<details class="gpg-verify">
+							<summary>Verify yourself</summary>
+							<pre>{`curl https://shaungarwood.com/source/${post.id} > post.mdx
+curl https://shaungarwood.com/signatures/${post.id}.asc > post.asc
+gpg --fetch-keys https://shaungarwood.com/pgp-key.asc
+gpg --verify post.asc post.mdx`}</pre>
+						</details>
+					</div>
+				)}
+			</div>
 			<hr class="end-of-article" />
 			<a href="/blog" class="block-link" data-pagefind-ignore>← Back to blog</a>
 		</Card>
