@@ -7,9 +7,11 @@ import Card from "../components/Card.astro";
 import Icon from "../components/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 
-const notes = (await getCollection("notes")).sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const notes = (await getCollection("notes")).sort((a, b) => {
+	const dateDiff = b.data.date.valueOf() - a.data.date.valueOf();
+	if (dateDiff !== 0) return dateDiff;
+	return b.id.localeCompare(a.id);
+});
 
 const renderedNotes = await Promise.all(
 	notes.map(async (note) => {

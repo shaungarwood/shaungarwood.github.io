@@ -20,7 +20,11 @@ const [posts, projects, notes, about, quickInfo, socials] =
 	]);
 
 const latestNotes = notes
-	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.sort((a, b) => {
+		const dateDiff = b.data.date.valueOf() - a.data.date.valueOf();
+		if (dateDiff !== 0) return dateDiff;
+		return b.id.localeCompare(a.id);
+	})
 	.slice(0, 5);
 
 const renderedNotes = await Promise.all(

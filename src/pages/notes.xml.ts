@@ -3,9 +3,11 @@ import { getCollection } from "astro:content";
 import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
-	const notes = (await getCollection("notes")).sort(
-		(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-	);
+	const notes = (await getCollection("notes")).sort((a, b) => {
+		const dateDiff = b.data.date.valueOf() - a.data.date.valueOf();
+		if (dateDiff !== 0) return dateDiff;
+		return b.id.localeCompare(a.id);
+	});
 
 	return rss({
 		title: "shaun. — notes",
