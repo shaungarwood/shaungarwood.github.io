@@ -1,7 +1,8 @@
 {
   "@context": [
     "https://www.w3.org/ns/did/v1",
-    "https://w3id.org/security/suites/jws-2020/v1"
+    "https://w3id.org/security/suites/jws-2020/v1",
+    "https://w3id.org/security/suites/pgp-2021/v1"
   ],
   "id": "did:web:shaungarwood.com",
   "verificationMethod": [
@@ -15,9 +16,35 @@
         "x": "g20os2eodzqmzwk_lyZJdZgjjNJ4VeS2DouiAZYf4Zk",
         "y": "eRZmtB3tx1A15KXzeXqAVm9-zanUc1d5p_T_iu8v7Mo"
       }
+    },
+    {
+      "id": "did:web:shaungarwood.com#pgp-key",
+      "type": "PgpVerificationKey2021",
+      "controller": "did:web:shaungarwood.com",
+      "publicKeyPgp": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmDMEaXhFkhYJKwYBBAHaRw8BAQdA+lw58kDIw+jvGTnVELJF7Gpi07jhtGPlS5Gd\ncXQff460J1NoYXVuIEdhcndvb2QgPHNoYXVuLmdhcndvb2RAZ21haWwuY29tPokB\nLwQTFgoA1wIbAQUJCWYBgAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBIgq\nqpr5bFH6oMq6Y48v+igbKSHzBQJqOGQpNhSAAAAAABAAHXByb29mQGFyaWFkbmUu\naWRkbnM6c2hhdW5nYXJ3b29kLmNvbT90eXBlPVRYVF4UgAAAAAAQAEVwcm9vZkBh\ncmlhZG5lLmlkaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vc2hhdW5nYXJ3b29kL2Q1\nZTgwZTYyMzYzYWNhZTBjYjM5YzRiYzczOWE5NmQzAAoJEI8v+igbKSHzxdoBAK8a\nmqS+of6P49EYNcZvQYS6K1wCrjxoTUnCSzqknau0AQC/1MKv3XxXlpD38AQOyQ30\nK6g0w7O1lRbKHbZ2UOLIBrgzBGl4Ro0WCSsGAQQB2kcPAQEHQCoc0omPqGj7HiUv\nY3DGwPm8gT15Vxai84QRWwPzC1+8iPUEGBYKACYWIQSIKqqa+WxR+qDKumOPL/oo\nGykh8wUCaXhGjQIbAgUJCWYBgACBCRCPL/ooGykh83YgBBkWCgAdFiEE057zb16n\nxPlfaKsjIz4qppFhxjAFAml4Ro0ACgkQIz4qppFhxjDPKwEAi+ud71FtXJnazzhg\nQZEPkubLNiobrruWEHG09bfC3M8BAJFYpB7jVcF+8KSOS10AsZhOhCkKNeWasUkI\nRo5jZTALalUA/2BA7NUz3Fz49LT0qR3BSldscsyLR1R61Bmn1j4dMKZWAPsE8hl1\n8tkZLz1ruvO5zRIwSUlCywziqNtipZa3E+OLALg4BGl4RrYSCisGAQQBl1UBBQEB\nB0CxSQJobuGuhuBcf1W2XphoMyLKDHsBHBVdIv/8SbMQFAMBCAeIfgQYFgoAJhYh\nBIgqqpr5bFH6oMq6Y48v+igbKSHzBQJpeEa2AhsMBQkJZgGAAAoJEI8v+igbKSHz\ncX8BAMKCcW2J2ONEGaGYSdEq1LMtEA3pq9m2Aedxj8mv8scMAP0bsqp1Uai4BQhv\nSjsz27vuiop+qbC5yZ1mm2vjuqvuCLgzBGl4RssWCSsGAQQB2kcPAQEHQBziInsy\nDznqTZmXcBgcAfvWPOQHk75JjXBMf3QtLNEXiH4EGBYKACYWIQSIKqqa+WxR+qDK\numOPL/ooGykh8wUCaXhGywIbIAUJCWYBgAAKCRCPL/ooGykh898YAP4+RNUrSqdm\nscOM1RJ2OMqUx+tcxqqtr54PCdCOBPDxWAEA5HGZnO2LCy4yw6yMgYtSsw8vvoyR\n24ko0xuC0dZQ+ww=\n=x6k+\n-----END PGP PUBLIC KEY BLOCK-----"
     }
   ],
   "assertionMethod": [
     "did:web:shaungarwood.com#key-0"
+  ],
+  "authentication": [
+    "did:web:shaungarwood.com#pgp-key"
+  ],
+  "service": [
+    {
+      "id": "did:web:shaungarwood.com#keyoxide",
+      "type": "KeyoxideVerification",
+      "serviceEndpoint": "https://keyoxide.org/hkp/882AAA9AF96C51FAA0CABA638F2FFA281B2921F3"
+    },
+    {
+      "id": "did:web:shaungarwood.com#github",
+      "type": "Github",
+      "serviceEndpoint": "https://github.com/shaungarwood"
+    },
+    {
+      "id": "did:web:shaungarwood.com#openpgp",
+      "type": "OpenPgpKeyserver",
+      "serviceEndpoint": "https://keys.openpgp.org/vks/v1/by-fingerprint/882AAA9AF96C51FAA0CABA638F2FFA281B2921F3"
+    }
   ]
 }
