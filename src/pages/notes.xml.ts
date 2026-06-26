@@ -21,7 +21,7 @@ export async function GET(context: APIContext) {
 			}),
 			description: (note.body ?? "").replace(/^---[\s\S]*?---\n*/m, "").trim().slice(0, 280),
 			pubDate: note.data.date,
-			link: `/notes/`,
+			link: `/notes/#${note.id}`,
 		})),
 	});
 }
