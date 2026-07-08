@@ -27,6 +27,13 @@ def main():
     print(f"Opening {path.relative_to(Path.cwd())} in {editor}...")
     subprocess.run([editor, str(path)])
 
+    repo_root = Path(__file__).parent.parent
+    answer = input("Commit and push this note? [y/N] ").strip().lower()
+    if answer == "y":
+        subprocess.run(["git", "add", str(path)], cwd=repo_root, check=True)
+        subprocess.run(["git", "commit", "-m", "note"], cwd=repo_root, check=True)
+        subprocess.run(["git", "push"], cwd=repo_root, check=True)
+
 
 if __name__ == "__main__":
     main()
